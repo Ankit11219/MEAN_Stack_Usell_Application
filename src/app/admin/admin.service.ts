@@ -68,7 +68,7 @@ export class AdminService {
         postData
       )
       .subscribe(responseData => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/createCategory']);
       });
   }
 
@@ -90,7 +90,7 @@ export class AdminService {
     this.http
       .put('http://localhost:3000/api/admin/categories/' + id, postData)
       .subscribe(response => {
-        this.router.navigate(['/admin/list']);
+        this.router.navigate(['/createCategory']);
       });
   }
 
@@ -123,7 +123,7 @@ export class AdminService {
       .subscribe(transformedPostData => {
         this.posts1 = transformedPostData.posts;
         this.postsUpdated1.next({
-          posts: [...this.posts],
+          posts: [...this.posts1],
           postCount: transformedPostData.maxPosts
         });
       });
@@ -152,7 +152,7 @@ export class AdminService {
         postData
       )
       .subscribe(responseData => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/createSubCategory']);
       });
   }
 
@@ -174,7 +174,7 @@ export class AdminService {
     this.http
       .put('http://localhost:3000/api/admin/subcategories/' + id, postData)
       .subscribe(response => {
-        this.router.navigate(['/admin/sublist']);
+        this.router.navigate(['/createSubCategory']);
       });
   }
 

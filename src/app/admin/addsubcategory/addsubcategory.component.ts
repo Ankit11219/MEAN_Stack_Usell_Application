@@ -80,7 +80,7 @@ export class AddsubcategoryComponent implements OnInit, OnDestroy {
       return;
     }
     this.isLoading = true;
-    if (this.mode === 'createCategory') {
+    if (this.mode === 'createSubCategory') {
       this.adminService.addSubCategory(
         this.form.value.title,
         this.form.value.image,
