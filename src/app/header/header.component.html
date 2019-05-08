@@ -1,0 +1,33 @@
+<mat-toolbar color="primary">
+  <span *ngIf="!adminIsAuthenticated">
+    <a routerLink="/">My_Posts</a>
+  </span>
+  <span *ngIf="adminIsAuthenticated">
+    <a routerLink="admin/allposts">All_Posts</a>
+  </span>
+  <span class="spacer"></span>
+  <ul>
+    <li *ngIf="userIsAuthenticated">
+      <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Post</a>
+    </li>
+
+    <li *ngIf="adminIsAuthenticated">
+      <a mat-button routerLink="/createCategory" routerLinkActive="mat-accent">Category</a>
+    </li>
+
+    <li *ngIf="adminIsAuthenticated">
+      <a mat-button routerLink="/createSubCategory" routerLinkActive="mat-accent">SubCategory</a>
+    </li>
+
+    <li *ngIf="!userIsAuthenticated && !adminIsAuthenticated">
+      <a mat-button routerLink="/login" routerLinkActive="mat-accent">Login</a>
+    </li>
+    <li *ngIf="!userIsAuthenticated && !adminIsAuthenticated">
+      <a mat-button routerLink="/signup" routerLinkActive="mat-accent">Signup</a>
+    </li>
+    <li *ngIf="userIsAuthenticated || adminIsAuthenticated">
+      <button mat-button (click)="onLogout()">Logout</button>
+    </li>
+  </ul>
+</mat-toolbar>
+
