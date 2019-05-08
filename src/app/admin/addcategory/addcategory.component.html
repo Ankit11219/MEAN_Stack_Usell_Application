@@ -1,6 +1,9 @@
 <mat-card>
   <mat-spinner *ngIf="isLoading"></mat-spinner>
   <form [formGroup]="form" (submit)="onSaveCategory()" *ngIf="!isLoading">
+    <div>
+      <h1>Add Category</h1>
+    </div>
     <mat-form-field>
       <input matInput type="text" formControlName="title" placeholder="Category Title">
       <mat-error *ngIf="form.get('title').invalid">Please enter a post title.</mat-error>

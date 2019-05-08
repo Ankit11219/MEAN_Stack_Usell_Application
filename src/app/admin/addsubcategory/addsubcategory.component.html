@@ -1,3 +1,26 @@
-<p>
-  addsubcategory works!
-</p>
+<mat-card>
+    <mat-spinner *ngIf="isLoading"></mat-spinner>
+    <form [formGroup]="form" (submit)="onSaveCategory()" *ngIf="!isLoading">
+      <div>
+        <h1>Add Sub Category</h1>
+      </div>
+      <mat-form-field>
+        <input matInput type="text" formControlName="title" placeholder="Category Title">
+        <mat-error *ngIf="form.get('title').invalid">Please enter a post title.</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-stroked-button type="button" (click)="filePicker.click()">Pick Image</button>
+        <input type="file" #filePicker (change)="onImagePicked($event)">
+      </div>
+      <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
+        <img [src]="imagePreview" [alt]="form.value.title">
+      </div>
+      <br>
+      <button mat-raised-button color="accent" type="submit">Save SubCategory</button>
+    </form>
+  </mat-card>
+  <br>
+  <app-admin-sub-list></app-admin-sub-list>
+
+
+
